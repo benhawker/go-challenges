@@ -9,3 +9,41 @@
 //Thus, our buy value will be (has to be) to the left of our sell value
 //
 //in the above example, the ideal solution is to buy at 48.29 and sell at 105.53
+
+
+package main
+import "fmt"
+
+func main() {
+	var input = []float32{55.39, 109.23, 48.29, 81.59, 105.53, 94.45, 12.24}
+
+	var bestBuy float32  = 0.0
+	var bestSell float32 = 0.0
+	var maxDiff  float32 = 0.0
+
+	for i := 0; i <= (len(input)-1); i++ {
+		var lowestPreviousValue float32 = getLowestPrevious(input,i)
+		var maxDifferencePerIteration float32 = input[i] - lowestPreviousValue
+
+		if (maxDifferencePerIteration > maxDiff) {
+			bestBuy  = lowestPreviousValue
+			bestSell = input[i]
+		}
+	}
+
+	fmt.Println("Buy at:", bestBuy)
+	fmt.Println("Sell at:", bestSell)
+}
+
+
+func getLowestPrevious(inputArray []float32, i int) float32 {
+	sliceToConsider := inputArray[0:i]
+	min := inputArray[0]
+
+	for i := 0; i < len(sliceToConsider); i++ {
+		if (min > sliceToConsider[i]) {
+			min = sliceToConsider[i]
+		}
+	}
+	return min
+}
