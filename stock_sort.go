@@ -17,8 +17,8 @@ import "fmt"
 func main() {
 	var input = []float32{55.39, 109.23, 48.29, 81.59, 105.53, 94.45, 12.24}
 
-	var bestBuy float32  = 0.0
-	var bestSell float32 = 0.0
+	var bestBuy float32
+	var bestSell float32
 	var maxDiff  float32 = 0.0
 
 	for i := 0; i <= (len(input)-1); i++ {
