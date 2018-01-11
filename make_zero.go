@@ -73,12 +73,12 @@ func main() {
 	printGrid(duplicatedGrid, width)
 }
 
+
 func printGrid(grid []int, width int) {
-	for i := 0; i < len(grid); i++ {
-		fmt.Print(grid[i])
-		if (i != 0) && ((i+1) % width == 0) {
+	for i, _ := range grid {
+  	fmt.Print(grid[i])
+  	if (i != 0) && ((i+1) % width == 0) {
 			fmt.Println()
 		}
 	}
-	return
 }
