@@ -72,7 +72,6 @@ func main() {
 	printGrid(duplicatedGrid, width)
 }
 
-// func calculateProduct(array [4]int, i int) int {
 func printGrid(grid []int, width int) string {
 	for i := 0; i < len(grid); i++ {
 		fmt.Print(grid[i])

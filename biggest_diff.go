@@ -16,8 +16,6 @@ func main() {
 	// Diffs
 	diffMap := make(map[int][]int)
 	
-	// fmt.Println(array)
-
 	for i := 1; i < len(array); i++ {
 		difference := (array[i] - array[i-1])
 
