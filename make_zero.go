@@ -35,14 +35,50 @@ func main() {
 		grid[i] = rand.Intn(9)
 	}
 
-	// Print the original grid optimised for the terminal.
+	duplicatedGrid := make([]int, len(grid))
+	copy(duplicatedGrid, grid)
+
+	fmt.Println("Original")
+	printGrid(grid, width)
+	fmt.Println("--------")
+
+	// Next deal with the zeros
+	for i := 0; i < len(grid); i++ {
+		if (grid[i] == 0) {
+
+			// Write zeros downwards in a col
+			for j := i; j < size; j += length {
+				duplicatedGrid[j] = 0
+			}
+
+			// Write zeros upwards in a col
+			for j := i; j >= 0; j -= length {
+				duplicatedGrid[j] = 0
+			}
+
+			// Write zeros to the right in a row
+			// for j := i; ((j+1) % (width) == 0); j++ {
+			for j := i; (j) % 5 != 0; j++ {
+				duplicatedGrid[j] = 0
+			}
+
+			// Write zeros to the left in a row
+			for j := i; (j+1) % 5 != 0; j-- {
+				duplicatedGrid[j] = 0
+			}
+		}
+	}
+	fmt.Println("--------")
+	printGrid(duplicatedGrid, width)
+}
+
+// func calculateProduct(array [4]int, i int) int {
+func printGrid(grid []int, width int) string {
 	for i := 0; i < len(grid); i++ {
 		fmt.Print(grid[i])
 		if (i != 0) && ((i+1) % width == 0) {
 			fmt.Println()
 		}
 	}
-
-	// Next deal with the zeros
-
+	return "nil"
 }
