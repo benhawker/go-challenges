@@ -8,6 +8,7 @@ import (
 	"math/rand"
 )
 
+// Pass length and width args to the program.
 func main() {
 	m := os.Args[1]
 	n := os.Args[2]
@@ -72,12 +73,12 @@ func main() {
 	printGrid(duplicatedGrid, width)
 }
 
-func printGrid(grid []int, width int) string {
+func printGrid(grid []int, width int) {
 	for i := 0; i < len(grid); i++ {
 		fmt.Print(grid[i])
 		if (i != 0) && ((i+1) % width == 0) {
 			fmt.Println()
 		}
 	}
-	return "nil"
+	return
 }
